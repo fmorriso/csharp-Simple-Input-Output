@@ -3,6 +3,12 @@ using System;
 
 class Program
 {
+    /// <summary>
+    /// A simple example of using console input and output.
+    /// This example asks a person's first name, age and whether or not they are
+    /// a citizen of the United States of America.
+    /// </summary>
+    /// <param name="args"></param>
     public static void Main(string[] args)
     {
         Console.WriteLine("What is your first name?");
@@ -88,6 +94,10 @@ class Program
         return result;
     }
 
+    /// <summary>
+    /// Prompts for a person's age and validates that it is a reasonable value.
+    /// </summary>
+    /// <returns>An int containing the person's age</returns>
     private static int GetValidAge()
     {
         int age = 0;
@@ -100,10 +110,10 @@ class Program
             {
                 Console.WriteLine("Enter your age: ");
                 string? resp = null;
-                while (resp == null)
+                while (string.IsNullOrWhiteSpace(resp))
                 {
                     resp = Console.ReadLine();
-                    if (string.IsNullOrEmpty(resp)) throw new Exception("No response dectected. Try again");
+                    if (string.IsNullOrWhiteSpace(resp)) throw new Exception("No response dectected. Try again");
                 }
                 age = Convert.ToInt32(resp);
                 if (age < MINAGE || age > MAXAGE)
