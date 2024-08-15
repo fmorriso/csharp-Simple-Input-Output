@@ -16,7 +16,7 @@ class Program
         while (string.IsNullOrEmpty(firstName))
         {
             firstName = Console.ReadLine();
-            if (string.IsNullOrEmpty(firstName)) Console.WriteLine("No response dectected. Try again");
+            if (string.IsNullOrWhiteSpace(firstName)) Console.WriteLine("No response dectected. Try again");
         }
         Console.WriteLine($"Hello {firstName}");
 
