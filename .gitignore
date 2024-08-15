@@ -1,0 +1,5 @@
+﻿# Visual Studio 2022 C# git ignore
+.vscode\
+.vs\
+bin\
+obj\
