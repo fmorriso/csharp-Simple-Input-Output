@@ -52,6 +52,10 @@ class Program
 
     }
 
+    /// <summary>
+    /// Prompts for whether or not a person is a citizen of the United States of America
+    /// </summary>
+    /// <returns>True if the person is a citizen; False if not a citizen.</returns>
     private static bool GetCitizenship()
     {
         bool result = true;
@@ -59,13 +63,17 @@ class Program
         while (needResponse)
         {
             Console.WriteLine("Are you a United States citizen (Y/N)?");
-            string? response = Console.ReadLine().ToUpper();
-            if (response.Equals("Y"))
+            string? response = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(response))
+            {                
+                Console.WriteLine("Invalid response.  Valid responses are Y or N");
+            }
+            else if (response.Equals("Y", StringComparison.OrdinalIgnoreCase))
             {
                 result = true;
                 needResponse = false;
             }
-            else if (response.Equals("N"))
+            else if (response.Equals("N", StringComparison.OrdinalIgnoreCase))
             {
                 result = false;
                 needResponse = false;
